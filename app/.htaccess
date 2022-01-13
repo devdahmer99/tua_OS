@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule    ^(\.well-known/.*)$ $1 [L]
+RewriteRule    ^$    public/    [L]
+RewriteRule    (.*) public/$1    [L]
