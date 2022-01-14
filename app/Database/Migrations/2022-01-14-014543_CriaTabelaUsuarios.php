@@ -21,12 +21,63 @@ class CriaTabelaUsuarios extends Migration
                 'type' => 'VARCHAR',
                 'constraint' =>  100,
             ],
+
             'email' => [
                 'type' => 'VARCHAR',
-                'constraint' => 100,
-            ]
+                'constraint' => 240,
+            ],
+
+            'password_hash' => [
+                'type' => 'VARCHAR',
+                'constraint' => 240,
+            ],
+
+            'reset_hash' => [
+                'type' => 'VARCHAR',
+                'constraint' => 80,
+                'null' => true,
+                'default' => null,
+            ],
+
+            'reset_expira_em' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
+            ],
+
+            'imagem' => [
+                'type' => 'VARCHAR',
+                'constraint' => 240,
+                'null' => null,
+                'default' => null,
+            ],
+
+            'ativo' => [
+                'type' => 'BOOLEAN',
+                'null' => false,
+            ],
+
+            'criado_em' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
+            ],
+
+            'atualizado_em' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
+            ],
+
+            'deletado_em' => [
+                'type' => 'DATETIME',
+                'null' => true,
+                'default' => null,
+            ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addUniqueKey('email');
+
         $this->forge->createTable('usuarios');
     }
 
