@@ -22,10 +22,7 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="<?php echo site_url('recursos/');?>img/favicon.ico">
 
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/all..min.css">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/all.min.css">
 
         <?php $this->renderSection('estilos');?>
   </head>
@@ -185,9 +182,8 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="index.html"> <i class="fas fa-house-user"></i> |  Home </a></li>
+                <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
-                <li><a href="charts.html"> <i class="fas fa-chart-pie"></i>  |  Charts </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -201,19 +197,22 @@
         <ul class="list-unstyled">
           <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
           <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
-          <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
+          <li> <a href="#"> <i class="fa fa-bar-chart"></i>Demo </a></li>
         </ul>
       </nav>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Dashboard</h2>
+            <h2 class="h5 no-margin-bottom">Lista de Usuarios</h2>
           </div>
         </div>
         <section class="no-padding-top no-padding-bottom">
 
-         <?php $this->renderSection('conteudo');?>
+
+         <div class="container-fluid">
+              <?php $this->renderSection('conteudo');?>
+         </div>
 
         </section>
        
@@ -237,6 +236,7 @@
     <script src="<?php echo site_url('recursos/');?>js/charts-home.js"></script>
     <script src="<?php echo site_url('recursos/');?>js/front.js"></script>
     <script src="<?php echo site_url('recursos/');?>js/all.min.js"></script>
+
 
     <?php $this->renderSection('scripts');?>
   </body>
