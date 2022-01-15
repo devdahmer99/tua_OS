@@ -44,7 +44,7 @@ class Usuarios extends BaseController
         foreach($usuarios as $usuario) {
                 $data[] = [
                     'imagem' => $usuario->imagem,
-                    'nome' => esc($usuario->nome),
+                    'nome' => anchor("usuarios/exibir/$usuario->id", esc($usuario->nome), 'title="Exibir usuário '.esc($usuario->nome).'"'),
                     'email' => esc($usuario->email),
                     'ativo' => ($usuario->ativo  == true ? '<i class="fa fa-unlock text-success"></i>&nbsp;Ativo' : '<i class="fa fa-lock text-warning"></i>&nbsp;Invativo'),
                 ];
@@ -54,5 +54,27 @@ class Usuarios extends BaseController
         ];
         return $this->response->setJSON($retorno);
 
+    }
+
+    public function exibir(int $id = null)
+    {
+        $usuario = $this->buscaUsuarioOu404($id);
+
+        $data = [
+            'titulo' => "Detalhes do usuário ". esc($usuario->nome),
+            'usuario' => $usuario,
+        ];
+
+        return view('Usuarios/exibir');
+    }
+
+
+    private function buscaUsuarioOu404(int $id = null)
+    {
+        if (!$id || !$usuario = $this->usuarioModel->withDeleted(true)->find($id)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o usuário $id");
+        }
+
+        return $usuario;
     }
 }
