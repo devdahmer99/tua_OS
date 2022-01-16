@@ -61,11 +61,24 @@ class Usuarios extends BaseController
         $usuario = $this->buscaUsuarioOu404($id);
 
         $data = [
-            'titulo' => "Detalhes do usuário ". esc($usuario->nome),
+            'titulo' => "Detalhes do usuário(a) ". esc($usuario->nome),
             'usuario' => $usuario,
         ];
 
-        return view('Usuarios/exibir');
+        return view('Usuarios/exibir', $data);
+    }
+
+
+    public function editar(int $id = null)
+    {
+        $usuario = $this->buscaUsuarioOu404($id);
+
+        $data = [
+            'titulo' => "Editando o usuário(a) ". esc($usuario->nome),
+            'usuario' => $usuario,
+        ];
+
+        return view('Usuarios/editar', $data);
     }
 
 
