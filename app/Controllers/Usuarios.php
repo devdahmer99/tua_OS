@@ -87,11 +87,11 @@ class Usuarios extends BaseController
             return redirect()->back();
         }
 
-        $post = $this->request->getPost();
+        $retorno = [];
+        $retorno['info'] = "Essa é uma mensagem de informação";
+        return $this->response->setJSON($retorno);
 
-        echo '<pre>';
-        print_r($post);
-        exit;
+        $post = $this->request->getPost();
     }
 
 
