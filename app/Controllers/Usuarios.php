@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UsuarioModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Usuarios extends BaseController
 {
@@ -13,7 +14,7 @@ class Usuarios extends BaseController
        $this->usuarioModel = new UsuarioModel();
    }
 
-    public function index()
+    public function index(): string
     {
         
         $data = [
@@ -56,7 +57,7 @@ class Usuarios extends BaseController
 
     }
 
-    public function exibir(int $id = null)
+    public function exibir(int $id = null): string
     {
         $usuario = $this->buscaUsuarioOu404($id);
 
@@ -69,7 +70,7 @@ class Usuarios extends BaseController
     }
 
 
-    public function editar(int $id = null)
+    public function editar(int $id = null): string
     {
         $usuario = $this->buscaUsuarioOu404($id);
 
@@ -87,18 +88,29 @@ class Usuarios extends BaseController
             return redirect()->back();
         }
 
-        $retorno = [];
-        $retorno['info'] = "Essa é uma mensagem de informação";
+        $retorno['token'] = csrf_hash();
+        $retorno['erro'] = "Essa é uma mensagem de erro de validação";
+        $retorno['erros_model'] =
+            [
+                'nome' => 'O nome é obrigatório',
+                'email' => 'E-mail inválido',
+                'password' => 'A senha é muito curta',
+            ];
+
         return $this->response->setJSON($retorno);
 
         $post = $this->request->getPost();
+
+        echo "<pre>";
+        print_r($post);
+        exit;
     }
 
 
     private function buscaUsuarioOu404(int $id = null)
     {
         if (!$id || !$usuario = $this->usuarioModel->withDeleted(true)->find($id)) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Não encontramos o usuário $id");
+            throw PageNotFoundException::forPageNotFound("Não encontramos o usuário $id");
         }
 
         return $usuario;

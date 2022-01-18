@@ -59,14 +59,23 @@ echo $titulo;?>
                     success: function(response){
                         $("#btn-salvar").val('Salvar');
                         $("#btn-salvar").removeAttr('disabled');
+                        $('[name=csrf_sistema]').val(response.token);
 
                         if (!response.erro) {
-                            $('[name=csrf_sistema]').val(response.token);
+
                             if (response.info) {
                                 $("#response").html('<div class="alert alert-info">'+ response.info +'</div>');
+                            } else {
+                                window.location.href = "<?php echo site_url("usuarios/exibir/$usuario->id");?>";
                             }
-                        } else {
+                        } else if(response.erro){
+                                $("#response").html('<div class="alert alert-danger">'+ response.erro +'</div>');
 
+                                if(response.erros_model) {
+                                    $.each(response.erros_model, function(key, value) {
+                                        $("#response").append('<ul class="list-unstyled"><li class="text-danger">'+ value +'</li></ul>');
+                                    });
+                                }
                         }
                     },
                     error: function() {
@@ -77,6 +86,10 @@ echo $titulo;?>
 
 
                 });
+            });
+
+            $("#form").submit(function(){
+                $(this).find(":submit").attr('disabled', 'disabled');
             });
         });
     </script>
