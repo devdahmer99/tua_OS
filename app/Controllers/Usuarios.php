@@ -75,7 +75,7 @@ class Usuarios extends BaseController
         $usuario = $this->buscaUsuarioOu404($id);
 
         $data = [
-            'titulo' => "Editando o usuário(a) ". esc($usuario->nome),
+            'titulo' => "Editar usuário(a) ". esc($usuario->nome),
             'usuario' => $usuario,
         ];
 
@@ -87,30 +87,43 @@ class Usuarios extends BaseController
         if (!$this->request->isAJAX()) {
             return redirect()->back();
         }
-
+        // Envia a hash do token da requisição
         $retorno['token'] = csrf_hash();
-        $retorno['erro'] = "Essa é uma mensagem de erro de validação";
-        $retorno['erros_model'] =
-            [
-                'nome' => 'O nome é obrigatório',
-                'email' => 'E-mail inválido',
-                'password' => 'A senha é muito curta',
-            ];
 
-        return $this->response->setJSON($retorno);
-
+        // Recupera o post da requisição
         $post = $this->request->getPost();
 
-        echo "<pre>";
-        print_r($post);
-        exit;
+        unset($post['password']);
+        unset($post['password_confirmation']);
+
+        // Valida a existência do Usuário
+        $usuario = $this->buscaUsuarioOu404($post['id']);
+
+        // Prencheendo os atributos do usuário com os valores do post
+        $usuario->fill($post);
+
+        if ($usuario->hasChanged() === false) {
+            $retorno['info'] = 'Não há dados para serem atualizados';
+            return $this->response->setJSON($retorno);
+        }
+
+        if ($this->usuarioModel->protect(false)->save($usuario)) {
+
+
+            return $this->response->setJSON($retorno);
+        }
+
+        $retorno['erro'] = 'Por favor, verifique os erros abaixo e tente novamente';
+        $retorno['erros_model'] = $this->usuarioModel->errors();
+
+        return $this->response->setJSON($retorno);
     }
 
 
     private function buscaUsuarioOu404(int $id = null)
     {
         if (!$id || !$usuario = $this->usuarioModel->withDeleted(true)->find($id)) {
-            throw PageNotFoundException::forPageNotFound("Não encontramos o usuário $id");
+            throw PageNotFoundException::forPageNotFound("Usuário não encontrado $id");
         }
 
         return $usuario;

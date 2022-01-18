@@ -64,18 +64,26 @@ echo $titulo;?>
                         if (!response.erro) {
 
                             if (response.info) {
+
                                 $("#response").html('<div class="alert alert-info">'+ response.info +'</div>');
+
                             } else {
+                                //Tudo ok com a atualização do usuário
+                                // Será feito o redirecionamento do usuário
                                 window.location.href = "<?php echo site_url("usuarios/exibir/$usuario->id");?>";
                             }
-                        } else if(response.erro){
-                                $("#response").html('<div class="alert alert-danger">'+ response.erro +'</div>');
+                        }
 
-                                if(response.erros_model) {
-                                    $.each(response.erros_model, function(key, value) {
-                                        $("#response").append('<ul class="list-unstyled"><li class="text-danger">'+ value +'</li></ul>');
-                                    });
-                                }
+                        if(response.erro){
+                            // Existem erros de validação
+                            $("#response").html('<div class="alert alert-danger">'+ response.erro +'</div>');
+
+                            if(response.erros_model) {
+                                $.each(response.erros_model, function(key, value) {
+                                    $("#response").append('<ul class="list-unstyled"><li class="text-danger">'+ value +'</li></ul>');
+
+                                });
+                            }
                         }
                     },
                     error: function() {

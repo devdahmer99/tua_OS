@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">       
     <label class="form-control-label">Senha</label>
-    <input type="password" name="senha" placeholder="Insira a senha de acesso" class="form-control">
+    <input type="password" name="password" placeholder="Insira a senha de acesso" class="form-control">
 </div>
 <div class="form-group">       
     <label class="form-control-label">Confirmação de senha</label>
