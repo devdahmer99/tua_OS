@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin | <?php $this->renderSection('titulo');?> </title>
@@ -8,26 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>vendor/font-awesome/css/font-awesome.min.css">
     <!-- Custom Font Icons CSS-->
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/font.css">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>css/font.css">
     <!-- Google fonts - Muli-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/custom.css">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="<?php echo site_url('recursos/');?>img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo site_url('recursos/'); ?>img/favicon.ico">
 
-    <link rel="stylesheet" href="<?php echo site_url('recursos/');?>css/all.min.css">
+    <link rel="stylesheet" href="<?php echo site_url('recursos/'); ?>css/all.min.css">
 
         <?php $this->renderSection('estilos');?>
   </head>
   <body>
-    <header class="header">   
+    <header class="header">
       <nav class="navbar navbar-expand-lg">
         <div class="search-panel">
           <div class="search-inner d-flex align-items-center justify-content-center">
@@ -48,23 +48,23 @@
             <!-- Sidebar Toggle Btn-->
             <button class="sidebar-toggle"><i class="fas fa-dragon"></i></button>
           </div>
-          <div class="right-menu list-inline no-margin-bottom">    
+          <div class="right-menu list-inline no-margin-bottom">
             <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="fab fa-searchengin"></i></a></div>
             <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="fas fa-envelope-open-text"></i><span class="badge dashbg-1">5</span></a>
               <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
-                  <div class="profile"><img src="<?php echo site_url('recursos/');?>img/avatar-3.jpg" alt="..." class="img-fluid">
+                  <div class="profile"><img src="<?php echo site_url('recursos/'); ?>img/avatar-3.jpg" alt="..." class="img-fluid">
                     <div class="status online"></div>
                   </div>
                   <div class="content">   <strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">9:30am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
-                  <div class="profile"><img src="<?php echo site_url('recursos/');?>img/avatar-2.jpg" alt="..." class="img-fluid">
+                  <div class="profile"><img src="<?php echo site_url('recursos/'); ?>img/avatar-2.jpg" alt="..." class="img-fluid">
                     <div class="status away"></div>
                   </div>
                   <div class="content">   <strong class="d-block">Peter Ramsy</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">7:40am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
-                  <div class="profile"><img src="<?php echo site_url('recursos/');?>img/avatar-1.jpg" alt="..." class="img-fluid">
+                  <div class="profile"><img src="<?php echo site_url('recursos/'); ?>img/avatar-1.jpg" alt="..." class="img-fluid">
                     <div class="status busy"></div>
                   </div>
                   <div class="content">   <strong class="d-block">Sam Kaheil</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">6:55am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
-                  <div class="profile"><img src="<?php echo site_url('recursos/');?>img/avatar-5.jpg" alt="..." class="img-fluid">
+                  <div class="profile"><img src="<?php echo site_url('recursos/'); ?>img/avatar-5.jpg" alt="..." class="img-fluid">
                     <div class="status offline"></div>
                   </div>
                   <div class="content">   <strong class="d-block">Sara Wood</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">10:30pm</small></div></a><a href="#" class="dropdown-item text-center message"> <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
@@ -160,8 +160,8 @@
             </div>
             <!-- Megamenu end     -->
             <!-- Languages dropdown    -->
-            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="<?php echo site_url('assets/');?>img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
-              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="<?php echo site_url('recursos/');?>img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="<?php echo site_url('recursos/');?>img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
+            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="<?php echo site_url('assets/'); ?>img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="<?php echo site_url('recursos/'); ?>img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="<?php echo site_url('recursos/'); ?>img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a></div>
             </div>
             <!-- Log out               -->
             <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div>
@@ -174,7 +174,7 @@
       <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="<?php echo site_url('recursos/');?>img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="<?php echo site_url('recursos/'); ?>img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
             <h1 class="h5">Mark Stephen</h1>
             <p>Web Designer</p>
@@ -204,7 +204,7 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <!<h2 class="h5 no-margin-bottom"><?php echo $titulo;?></h2>
+            <!<h2 class="h5 no-margin-bottom"><?php echo $titulo; ?></h2>
           </div>
         </div>
         <section class="no-padding-top no-padding-bottom">
@@ -215,7 +215,7 @@
          </div>
 
         </section>
-       
+
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
@@ -227,15 +227,15 @@
       </div>
     </div>
     <!-- JavaScript files-->
-    <script src="<?php echo site_url('recursos/');?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo site_url('recursos/');?>vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="<?php echo site_url('recursos/');?>vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo site_url('recursos/');?>vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="<?php echo site_url('recursos/');?>vendor/chart.js/Chart.min.js"></script>
-    <script src="<?php echo site_url('recursos/');?>vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="<?php echo site_url('recursos/');?>js/charts-home.js"></script>
-    <script src="<?php echo site_url('recursos/');?>js/front.js"></script>
-    <script src="<?php echo site_url('recursos/');?>js/all.min.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/chart.js/Chart.min.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>js/charts-home.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>js/front.js"></script>
+    <script src="<?php echo site_url('recursos/'); ?>js/all.min.js"></script>
 
 
     <?php $this->renderSection('scripts');?>
